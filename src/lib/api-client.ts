@@ -2,7 +2,7 @@ import KanvasCore, { genericAuthMiddleware } from "@kanvas/core";
 import { env } from "./env";
 
 const getKey = async (): Promise<string | null> => {
-  return localStorage.getItem("token") || null;
+  return null;
 };
 
 export const apiClient = new KanvasCore({
