@@ -6,6 +6,7 @@ import { handleRegister } from "@/actions/register";
 import { Form } from "@/components/Form";
 import { FormPageWrapper } from "@/components/FormPageWrapper";
 import { RegisterFormFields } from "@/components/RegisterFormFields";
+import Link from "next/link";
 
 export default async function RegisterPage() {
   const token = await getToken();
@@ -19,9 +20,9 @@ export default async function RegisterPage() {
         <RegisterFormFields />
         <p>
           Already have an account?{" "}
-          <a href="/login" className="text-blue-500">
+          <Link href="/login" className="text-blue-500">
             Login
-          </a>
+          </Link>
         </p>
       </Form>
     </FormPageWrapper>

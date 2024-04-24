@@ -5,6 +5,7 @@ import { Form } from "@/components/Form";
 import { FormPageWrapper } from "@/components/FormPageWrapper";
 import { LoginFormFields } from "@/components/LoginFormFields";
 import { getToken } from "@/lib/cookies";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function LoginPage() {
@@ -18,9 +19,9 @@ export default async function LoginPage() {
         <LoginFormFields />
         <p>
           Don&apos;t have an account?{" "}
-          <a href="/register" className="text-blue-500">
+          <Link href="/register" className="text-blue-500">
             Register
-          </a>
+          </Link>
         </p>
       </Form>
     </FormPageWrapper>
