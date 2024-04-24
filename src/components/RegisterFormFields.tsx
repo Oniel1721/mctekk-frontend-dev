@@ -2,7 +2,12 @@
 
 import React from "react";
 import FormField from "./FormField";
-import { z } from "zod";
+import {
+  emailSchema,
+  firstnameSchema,
+  lastnameSchema,
+  passwordSchema,
+} from "@/lib/schemas";
 
 export const RegisterFormFields: React.FC = () => {
   return (
@@ -11,20 +16,20 @@ export const RegisterFormFields: React.FC = () => {
         label="Email"
         name="email"
         placeholder="example@example.com"
-        schema={z.string().email({ message: "Invalid email" })}
+        schema={emailSchema}
       />
       <div className="flex gap-4">
         <FormField
           label="First Name"
           name="firstname"
           placeholder="John"
-          schema={z.string().min(1, { message: "First Name is required" })}
+          schema={firstnameSchema}
         />
         <FormField
           label="Last Name"
           name="lastname"
           placeholder="Doe"
-          schema={z.string().min(1, { message: "Last Name is required" })}
+          schema={lastnameSchema}
         />
       </div>
       <div className="flex gap-4">
@@ -34,18 +39,14 @@ export const RegisterFormFields: React.FC = () => {
           label="Password"
           name="password"
           placeholder="*******"
-          schema={z
-            .string()
-            .min(8, { message: "Password must be at least 8 characters" })}
+          schema={passwordSchema}
         />
         <FormField
           type="password"
           label="Confirm Password"
           name="password_confirmation"
           placeholder="*******"
-          schema={z
-            .string()
-            .min(8, { message: "Password must be at least 8 characters" })}
+          schema={passwordSchema}
         />
       </div>
     </>

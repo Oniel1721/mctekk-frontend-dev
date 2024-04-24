@@ -1,7 +1,6 @@
 "use server";
 
 import { handleLogin } from "@/actions/login";
-import Button from "@/components/Button";
 import { Form } from "@/components/Form";
 import { FormPageWrapper } from "@/components/FormPageWrapper";
 import { LoginFormFields } from "@/components/LoginFormFields";
@@ -15,9 +14,14 @@ export default async function LoginPage() {
   }
   return (
     <FormPageWrapper title="Login">
-      <Form action={handleLogin}>
+      <Form buttonLabel="Login" action={handleLogin}>
         <LoginFormFields />
-        <Button>Login</Button>
+        <p>
+          Don&apos;t have an account?{" "}
+          <a href="/register" className="text-blue-500">
+            Register
+          </a>
+        </p>
       </Form>
     </FormPageWrapper>
   );

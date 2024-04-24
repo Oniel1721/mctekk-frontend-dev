@@ -6,7 +6,6 @@ import { handleRegister } from "@/actions/register";
 import { Form } from "@/components/Form";
 import { FormPageWrapper } from "@/components/FormPageWrapper";
 import { RegisterFormFields } from "@/components/RegisterFormFields";
-import Button from "@/components/Button";
 
 export default async function RegisterPage() {
   const token = await getToken();
@@ -16,9 +15,14 @@ export default async function RegisterPage() {
 
   return (
     <FormPageWrapper title="Register">
-      <Form action={handleRegister}>
+      <Form buttonLabel="Register" action={handleRegister}>
         <RegisterFormFields />
-        <Button>Register</Button>
+        <p>
+          Already have an account?{" "}
+          <a href="/login" className="text-blue-500">
+            Login
+          </a>
+        </p>
       </Form>
     </FormPageWrapper>
   );

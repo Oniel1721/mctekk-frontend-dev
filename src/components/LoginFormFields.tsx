@@ -2,7 +2,7 @@
 
 import React from "react";
 import FormField from "./FormField";
-import { z } from "zod";
+import { emailSchema, passwordSchema } from "@/lib/schemas";
 
 export const LoginFormFields: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const LoginFormFields: React.FC = () => {
         label="Email"
         name="email"
         placeholder="example@example.com"
-        schema={z.string().email({ message: "Invalid email" })}
+        schema={emailSchema}
       />
 
       <FormField
@@ -20,9 +20,7 @@ export const LoginFormFields: React.FC = () => {
         label="Password"
         name="password"
         placeholder="*******"
-        schema={z
-          .string()
-          .min(8, { message: "Password must be at least 8 characters" })}
+        schema={passwordSchema}
       />
     </>
   );
