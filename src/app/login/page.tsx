@@ -1,25 +1,14 @@
-import { login } from "@/services/login";
-import { formDataToObject } from "../../utils/formDataToObject";
-import { z } from "zod";
+"use server";
 
-const loginPayloadSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-});
+import { handleLogin } from "@/actions/login";
+import { getToken } from "@/lib/cookies";
+import { redirect } from "next/navigation";
 
-export default function LoginPage() {
-  const handleLogin = async (data: FormData) => {
-    "use server";
-    const results = loginPayloadSchema.safeParse(formDataToObject(data));
-    if (!results.success) {
-      console.log(results.error.errors);
-      return;
-    }
-    const payload = results.data;
-    const auth = await login(payload);
-    console.log(auth);
-  };
-
+export default async function LoginPage() {
+  const token = await getToken();
+  if (token) {
+    redirect("/dashboard");
+  }
   return (
     <div>
       <h1>Login</h1>

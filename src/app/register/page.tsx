@@ -1,27 +1,15 @@
-import { z } from "zod";
-import { formDataToObject } from "../../utils/formDataToObject";
-import { register } from "@/services/register";
+"use server";
 
-const registerPayloadSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-  password_confirmation: z.string().min(8),
-  firstname: z.string(),
-  lastname: z.string(),
-});
+import { redirect } from "next/navigation";
+import { getToken } from "@/lib/cookies";
+import { handleRegister } from "@/actions/register";
 
-export default function RegisterPage() {
-  const handleRegister = async (data: FormData) => {
-    "use server";
-    const results = registerPayloadSchema.safeParse(formDataToObject(data));
-    if (!results.success) {
-      console.log(results.error.errors);
-      return;
-    }
-    const payload = results.data;
-    const user = await register(payload);
-    console.log(user);
-  };
+export default async function RegisterPage() {
+  const token = await getToken();
+  if (token) {
+    redirect("/dashboard");
+  }
+
   return (
     <div>
       <h1>Register</h1>
