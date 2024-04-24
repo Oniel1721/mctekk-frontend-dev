@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MCTEKK Frontend Development Challenge
 
-## Getting Started
+Esta es la entrega para la prueba de desarrollo frontend para MCTEKK. El objetivo de esta prueba es evaluar tus habilidades en el desarrollo frontend.
 
-First, run the development server:
+- URL del proyecto en producción: [https://mctekk-frontend-dev.vercel.app/](https://mctekk-frontend-dev.vercel.app/)
+
+## Descripción
+
+El proyecto consiste en una aplicación web que permita el registro y login de usuarios, utilizando el sdk de Kanvas Core. Tambien hay una pagina `/dashboard` donde solo pueden acceder los usuarios logeados donde se muestra un mensaje de bienvenida, con algunos datos del usuario y un boton para cerrar sesión.
+
+El proyecto tambien cuenta con tests unitarios sobre las funciones principales de la aplicación como el login, el registro y el logout.
+
+## Tecnologías utilizadas
+
+- TypeScript: Como lenguaje de programación que permite la tipificación de datos.
+- React: Como librería de desarrollo de interfaces de usuario.
+- Next.js: Como framework de React que facilita la creación de paginás renderizadas del lado del servidor, manejo de rutas, cookies, y server actions.
+- Jest: Como librería de testing para realizar pruebas unitarias.
+- Zod: Como librería de validación de datos.
+- Kanvas Core: Como sdk para el manejo de la autenticación de usuarios.
+
+## Instalación
+
+### Requisitos
+
+- Node.js v20.11.1 o superior
+- npm v10.2.4 o superior
+
+### Pasos
+
+1. Clonar el repositorio
+
+```bash
+git clone https://github.com/Oniel1721/mctekk-frontend-dev.git
+```
+
+2. Instalar las dependencias
+
+```bash
+npm install
+```
+
+3. Crear un archivo `.env.local` en la raíz del proyecto con las siguientes variables de entorno:
+
+```env
+KANVAS_API_KEY=YOUR_KANVAS_API_KEY
+KANVAS_GRAPH_URL=YOUR_KANVAS_GRAPH_URL
+```
+
+4. Iniciar el servidor de desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Esto solo es una descripción de la estructura de carpetas y archivos más importantes del proyecto.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+mctekk-frontend-dev/
+├── public/
+├── src/
+│   ├── actions/ // Server actions de la aplicación
+│   ├── app/
+│   │   ├── dashboard/  // Página de dashboard
+│   │   ├── login/    // Página de login
+│   │   ├── register/ // Página de registro
+│   ├── components/ // Componentes de la aplicación
+│   ├── utils // Funciones de utilidad
+│   ├── lib // Acceso a librerias o recursos externos
+│   ├── services // Servicios de la aplicación
+│   ├── types // Tipos de datos
+│   ├── pages // Páginas de la aplicación
+│   ├── hooks // Hooks personalizados
+│   ├── styles // Estilos globales
+├── .env.local // Variables de entorno
+├── jest.config.ts // Configuración de Jest
+├── next.config.mjs // Configuración de Next.js
+├── tsconfig.json // Configuración de TypeScript
+├── tailwind.config.ts // Configuración de Tailwind CSS
+├── package.json
+└── README.md
+```
