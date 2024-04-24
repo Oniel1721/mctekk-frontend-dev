@@ -1,8 +1,8 @@
 "use server";
 
-import { LogoutButton } from "@/components/LogoutButton";
-import { getToken } from "@/lib/cookies";
-import { getUserInfo } from "@/services/get-user-info";
+import { LogoutButton } from "../../components/LogoutButton";
+import { getToken } from "../../lib/cookies";
+import { getUserInfo } from "../../services/get-user-info";
 import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
@@ -12,12 +12,18 @@ export default async function DashboardPage() {
   }
   const user = await getUserInfo();
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome back, {user.firstname}!</p>
-      <p>Id: {user.uuid}</p>
-      <p>Email: {user.email}</p>
-      <LogoutButton />
+    <div className="p-8 flex flex-col justify-between min-h-screen">
+      <main>
+        <h1 className="text-2xl m-0">
+          Welcome{" "}
+          <strong className="text-blue-400 font-bold">{user.firstname}</strong>!
+        </h1>
+        <code>{user.uuid}</code>
+        <p className="italic text-sm">{user.email}</p>
+      </main>
+      <footer>
+        <LogoutButton />
+      </footer>
     </div>
   );
 }
