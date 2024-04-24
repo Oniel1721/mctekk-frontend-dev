@@ -1,12 +1,9 @@
 import KanvasCore, { genericAuthMiddleware } from "@kanvas/core";
 import { env } from "./env";
-
-const getKey = async (): Promise<string | null> => {
-  return null;
-};
+import { getToken } from "./cookies";
 
 export const apiClient = new KanvasCore({
   url: env.KANVAS_GRAPH_URL,
   key: env.KANVAS_API_KEY,
-  middlewares: [genericAuthMiddleware(getKey)],
+  middlewares: [genericAuthMiddleware(getToken)],
 });
