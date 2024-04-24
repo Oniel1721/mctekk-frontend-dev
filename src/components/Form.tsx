@@ -28,7 +28,7 @@ export const Form: React.FC<{
 
   return (
     <form
-      className="flex flex-col gap-4  border-2 border-gray-400 rounded px-8 py-4"
+      className="flex flex-col gap-4  border-2 border-gray-400 rounded px-8 py-4 max-w-lg"
       onSubmit={handleSubmit}
     >
       {children}
