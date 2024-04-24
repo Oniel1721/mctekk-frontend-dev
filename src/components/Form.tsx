@@ -6,7 +6,7 @@ import Button from "./Button";
 export const Form: React.FC<{
   children: React.ReactNode;
   buttonLabel: string;
-  action: (data: FormData) => Promise<{ error: string }>;
+  action: (data: FormData) => Promise<{ error: string } | undefined>;
 }> = ({ children, action, buttonLabel }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
