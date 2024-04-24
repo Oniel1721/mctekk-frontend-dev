@@ -1,5 +1,5 @@
 import { login } from "@/services/login";
-import { formDataToObject } from "../utils/formDataToObject";
+import { formDataToObject } from "../../utils/formDataToObject";
 import { z } from "zod";
 
 const loginPayloadSchema = z.object({

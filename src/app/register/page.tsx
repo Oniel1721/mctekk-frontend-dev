@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { formDataToObject } from "../utils/formDataToObject";
+import { formDataToObject } from "../../utils/formDataToObject";
 import { register } from "@/services/register";
 
 const registerPayloadSchema = z.object({
