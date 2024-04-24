@@ -2,7 +2,7 @@
 
 import React from "react";
 import FormField from "./FormField";
-import { emailSchema, passwordSchema } from "@/lib/schemas";
+import { emailSchema, passwordSchema } from "../lib/schemas";
 
 export const LoginFormFields: React.FC = () => {
   return (

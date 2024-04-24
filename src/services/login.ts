@@ -1,6 +1,6 @@
 "use server";
 
-import { apiClient } from "@/lib/api-client";
+import { apiClient } from "../lib/api-client";
 
 type LoginPayload = {
   email: string;

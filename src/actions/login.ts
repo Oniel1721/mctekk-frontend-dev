@@ -1,10 +1,10 @@
 "use server";
 
-import { login } from "@/services/login";
-import { formDataToObject } from "@/utils/formDataToObject";
+import { login } from "../services/login";
+import { formDataToObject } from "../utils/formDataToObject";
 import { redirect } from "next/navigation";
-import { setToken } from "@/lib/cookies";
-import { loginSchema } from "@/lib/schemas";
+import { setToken } from "../lib/cookies";
+import { loginSchema } from "../lib/schemas";
 
 export async function handleLogin(data: FormData) {
   "use server";

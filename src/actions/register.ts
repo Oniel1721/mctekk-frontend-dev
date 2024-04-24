@@ -1,6 +1,6 @@
-import { registerSchema } from "@/lib/schemas";
-import { register } from "@/services/register";
-import { formDataToObject } from "@/utils/formDataToObject";
+import { registerSchema } from "../lib/schemas";
+import { register } from "../services/register";
+import { formDataToObject } from "../utils/formDataToObject";
 import { redirect } from "next/navigation";
 
 export const handleRegister = async (data: FormData) => {

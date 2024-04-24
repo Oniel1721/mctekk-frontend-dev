@@ -7,7 +7,7 @@ import {
   firstnameSchema,
   lastnameSchema,
   passwordSchema,
-} from "@/lib/schemas";
+} from "../lib/schemas";
 
 export const RegisterFormFields: React.FC = () => {
   return (

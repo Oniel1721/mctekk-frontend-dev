@@ -1,11 +1,11 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getToken } from "@/lib/cookies";
-import { handleRegister } from "@/actions/register";
-import { Form } from "@/components/Form";
-import { FormPageWrapper } from "@/components/FormPageWrapper";
-import { RegisterFormFields } from "@/components/RegisterFormFields";
+import { getToken } from "../../lib/cookies";
+import { handleRegister } from "../../actions/register";
+import { Form } from "../../components/Form";
+import { FormPageWrapper } from "../../components/FormPageWrapper";
+import { RegisterFormFields } from "../../components/RegisterFormFields";
 import Link from "next/link";
 
 export default async function RegisterPage() {

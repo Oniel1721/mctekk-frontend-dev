@@ -1,10 +1,10 @@
 "use server";
 
-import { handleLogin } from "@/actions/login";
-import { Form } from "@/components/Form";
-import { FormPageWrapper } from "@/components/FormPageWrapper";
-import { LoginFormFields } from "@/components/LoginFormFields";
-import { getToken } from "@/lib/cookies";
+import { handleLogin } from "../../actions/login";
+import { Form } from "../../components/Form";
+import { FormPageWrapper } from "../../components/FormPageWrapper";
+import { LoginFormFields } from "../../components/LoginFormFields";
+import { getToken } from "../../lib/cookies";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
