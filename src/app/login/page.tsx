@@ -1,6 +1,10 @@
 "use server";
 
 import { handleLogin } from "@/actions/login";
+import Button from "@/components/Button";
+import { Form } from "@/components/Form";
+import { FormPageWrapper } from "@/components/FormPageWrapper";
+import { LoginFormFields } from "@/components/LoginFormFields";
 import { getToken } from "@/lib/cookies";
 import { redirect } from "next/navigation";
 
@@ -10,13 +14,11 @@ export default async function LoginPage() {
     redirect("/dashboard");
   }
   return (
-    <div>
-      <h1>Login</h1>
-      <form action={handleLogin}>
-        <input name="email" type="email" placeholder="Email" />
-        <input name="password" type="password" placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <FormPageWrapper title="Login">
+      <Form action={handleLogin}>
+        <LoginFormFields />
+        <Button>Login</Button>
+      </Form>
+    </FormPageWrapper>
   );
 }
