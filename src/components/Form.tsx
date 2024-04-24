@@ -6,7 +6,7 @@ import Button from "./Button";
 export const Form: React.FC<{
   children: React.ReactNode;
   buttonLabel: string;
-  action: (data: FormData) => Promise<void>;
+  action: (data: FormData) => Promise<{ error: string }>;
 }> = ({ children, action, buttonLabel }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,7 +16,10 @@ export const Form: React.FC<{
     setLoading(true);
     const formData = new FormData(event.currentTarget);
     try {
-      await action(formData);
+      const results = await action(formData);
+      if (results?.error) {
+        throw new Error(results.error);
+      }
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Something went wrong";
