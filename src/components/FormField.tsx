@@ -63,9 +63,9 @@ export default function FormField({
         placeholder={placeholder}
         type={type}
         name={name}
-        className={`w-full outline-none p-1 focus-visible:outline-indigo-500 outline-gray-200 ${
-          valid ? "outline-green-500" : ""
-        } ${error ? "outline-red-500" : ""} ${className}`}
+        className={`w-full outline-none p-1 focus-visible:outline-indigo-500 ${
+          error ? "outline-red-500" : "outline-gray-200"
+        } ${className}`}
         required={required}
       />
       <div className="text-red-500 text-xs">{error}</div>
